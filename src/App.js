@@ -14,6 +14,7 @@ import PrivateRoute from './components/PrivateRoute';
 import { AuthProvider } from './context/AuthContext';
 import  ToastContainer  from 'react-hot-toast';
 import './index.css';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               {/* Protected Routes */}
               <Route element={<PrivateRoute />}>
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="/create" element={<CreateBlog />} />
                 <Route path="/edit/:id" element={<EditBlog />} />
               </Route>

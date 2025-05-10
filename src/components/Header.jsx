@@ -17,50 +17,86 @@ const Header = () => {
     };
 
     return (
-        <header className="bg-white shadow-sm">
-            <div className="container flex items-center justify-between py-4">
-                <Link to="/" className="text-2xl font-bold text-primary">
-                    BlogHub
-                </Link>
-                <nav className="flex items-center space-x-6">
-                    <Link to="/" className="hover:text-primary">
-                        Home
+        <header className="bg-gradient-to-r from-indigo-900 to-purple-800 text-white shadow-lg">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16 md:h-20">
+                    <Link
+                        to="/"
+                        className="text-2xl font-bold text-white hover:text-indigo-200 transition-colors duration-300 flex items-center"
+                    >
+                        <span className="bg-white text-indigo-900 rounded-lg px-2 py-1 mr-2">BH</span>
+                        <span className="hidden sm:inline">BlogHub</span>
                     </Link>
-                    <Link to="/about" className="hover:text-primary">
-                        About
-                    </Link>
-                    {currentUser ? (
-                        <>
-                            <Link to="/dashboard" className="hover:text-primary">
-                                Dashboard
-                            </Link>
-                            <Link to="/create" className="hover:text-primary">
-                                Create Blog
-                            </Link>
-                            <button
-                                onClick={handleLogout}
-                                className="text-red-600 hover:text-red-800"
-                            >
-                                Logout
-                            </button>
-                            <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">
-                                {currentUser.email.charAt(0).toUpperCase()}
-                            </span>
-                        </>
-                    ) : (
-                        <>
-                            <Link to="/login" className="hover:text-primary">
-                                Login
-                            </Link>
-                            <Link
-                                to="/register"
-                                className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
-                            >
-                                Register
-                            </Link>
-                        </>
-                    )}
-                </nav>
+
+                    <nav className="flex items-center space-x-1 sm:space-x-4">
+                        <Link
+                            to="/"
+                            className="px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 hover:bg-opacity-50 transition-colors duration-300"
+                        >
+                            Home
+                        </Link>
+                        <Link
+                            to="/about"
+                            className="px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 hover:bg-opacity-50 transition-colors duration-300 hidden sm:block"
+                        >
+                            About
+                        </Link>
+
+                        {currentUser ? (
+                            <>
+                                <Link
+                                    to="/dashboard"
+                                    className="px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 hover:bg-opacity-50 transition-colors duration-300 hidden md:block"
+                                >
+                                    Dashboard
+                                </Link>
+                                <Link
+                                    to="/create"
+                                    className="px-3 py-2 rounded-md text-sm font-medium bg-white text-indigo-900 hover:bg-indigo-100 transition-colors duration-300 flex items-center"
+                                >
+                                    <span className="hidden sm:inline">Create Blog</span>
+                                    <span className="sm:hidden">+</span>
+                                </Link>
+                                <button
+                                    onClick={handleLogout}
+                                    className="px-3 py-2 rounded-md text-sm font-medium hover:bg-red-900 hover:bg-opacity-50 transition-colors duration-300"
+                                >
+                                    <span className="hidden sm:inline">Logout</span>
+                                    <span className="sm:hidden">→</span>
+                                </button>
+                               {/*  <div className="ml-2 relative">
+                                    <div className="w-8 h-8 rounded-full bg-white text-indigo-900 flex items-center justify-center font-bold cursor-pointer hover:bg-indigo-100 transition-colors duration-300">
+                                        {currentUser.email.charAt(0).toUpperCase()}
+                                    </div>
+                                </div> */}
+                                <Link
+                                    to="/profile"
+                                    className="ml-2 relative w-8 h-8 rounded-full bg-white text-indigo-900 flex items-center justify-center font-bold hover:bg-indigo-100 transition-colors duration-300"
+                                    title="View Profile"
+                                >
+                                    {currentUser.email.charAt(0).toUpperCase()}
+                                </Link>
+
+                            </>
+                        ) : (
+                            <>
+                                <Link
+                                    to="/login"
+                                    className="px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 hover:bg-opacity-50 transition-colors duration-300"
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    to="/register"
+                                    className="px-4 py-2 rounded-md text-sm font-medium bg-indigo-500 text-white hover:bg-indigo-400 transition-colors duration-300"
+                                >
+                                    <span className="hidden sm:inline">Register</span>
+                                    <span className="sm:hidden">Join</span>
+                                </Link>
+                            </>
+                        )}
+                    </nav>
+                </div>
             </div>
         </header>
     );
