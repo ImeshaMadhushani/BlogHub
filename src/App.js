@@ -42,9 +42,10 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <ToastContainer position="top-right" /> {/* ✅ Now it's part of the layout */}
         </div>
-        <ToastContainer position="top-right" />
       </AuthProvider>
+
     </Router>
   );
 }
